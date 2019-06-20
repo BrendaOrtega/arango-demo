@@ -51,7 +51,7 @@ class HomeContain extends Component {
 
 
         let script = document.createElement('script')
-        script.id = 'bliss'
+        script.id = 'blissito'
         script.async = true;
 
         const text = document.createTextNode(`

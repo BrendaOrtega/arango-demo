@@ -71,19 +71,19 @@ class HomeContain extends Component {
         }(document, 'script', 'facebook-jssdk'));
             `)
         script.appendChild(text)
-        document.body.appendChild(script)
         let div2 = document.createElement('div')
-        //div2.classList = 'fb-customerchat'
+        div2.classList = 'fb-customerchat'
         div2.innerHTML = `
             <div class="fb-customerchat"
         attribution=setup_tool
         page_id="204530763746823"
         theme_color="#d4a88c"
-        logged_in_greeting="¡Hola! ¿Cómo podemos ayudarte?"
-        logged_out_greeting="¡Hola! ¿Cómo podemos ayudarte?">
+        logged_in_greeting="¡Hola!, ¿Cómo podemos ayudarte?"
+        logged_out_greeting="¡Hasta pronto!">
             </div>
         `
         document.body.appendChild(div2)
+        document.body.appendChild(script)
 
     }
 

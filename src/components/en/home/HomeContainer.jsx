@@ -72,6 +72,47 @@ class HomeContainer extends Component {
         sr.reveal('.right', config2);
         sr.reveal('.left', config);
         sr.reveal('.bot', config3);
+
+        //console.log('mijo')
+        let div = document.createElement('div')
+        div.id = 'fb-root'
+        document.body.appendChild(div)
+
+
+        let script = document.createElement('script')
+        script.id = 'bliss'
+        script.async = true;
+
+        const text = document.createTextNode(`
+            window.fbAsyncInit = function() {
+            FB.init({
+                xfbml            : true,
+                version          : 'v3.2'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+            `)
+        script.appendChild(text)
+        let div2 = document.createElement('div')
+        div2.classList = 'fb-customerchat'
+        div2.innerHTML = `
+            <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="204530763746823"
+        theme_color="#d4a88c"
+        logged_in_greeting="Hello! ¿How can we help you?"
+        logged_out_greeting="Bye bye!">
+            </div>
+        `
+        document.body.appendChild(div2)
+        document.body.appendChild(script)
     }
 
 

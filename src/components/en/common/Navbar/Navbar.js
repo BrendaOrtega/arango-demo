@@ -19,7 +19,7 @@ export const Navbar = () => (
                     <li><Link to="/en/events">Events</Link></li>
                     <li><Link to="/en/reservation">Reservation</Link></li>
                     <li><Link to="/en/press">Press</Link></li>
-                    <li><Link to="/en/contact">Contact</Link></li>
+                    <li><Link to="/en/contact">Contact us</Link></li>
                 </ul>
             </div>
         </nav>

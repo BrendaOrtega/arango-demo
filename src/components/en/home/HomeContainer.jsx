@@ -107,8 +107,8 @@ class HomeContainer extends Component {
         attribution="setup_tool"
         page_id="204530763746823"
         theme_color="#d4a88c"
-        logged_in_greeting="Hello! ¿How can we help you?"
-        logged_out_greeting="Bye bye!">
+        logged_in_greeting="Hola! ¿Como podemos ayudarte?"
+        logged_out_greeting="Hola! ¿Como podemos ayudarte?">
             </div>
         `
         document.body.appendChild(div2)

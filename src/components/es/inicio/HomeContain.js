@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import sr from './scrollReveal.js';
 import uno from '../../../assets/1.JPG';
 import tres from '../../../assets/3.JPG';
 import cuatro from '../../../assets/4.JPG';

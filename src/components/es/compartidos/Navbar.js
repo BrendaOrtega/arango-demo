@@ -29,6 +29,8 @@ export const Navbar = () => (
                         <li><Link to="/es/" uk-toggle="target: #sidenav">Inicio</Link></li>
                         <li><Link to="/es/nosotros" uk-toggle="target: #sidenav">Nosotros</Link></li>
                         <li><Link to="/es/menu" uk-toggle="target: #sidenav">Menu</Link></li>
+                        <li><Link to="/es/eventos" uk-toggle="target: #sidenav">Eventos</Link></li>
+
                         <li><Link to="/es/reservaciones" uk-toggle="target: #sidenav">Reservación</Link></li>
                         <li><Link to="/es/prensa" uk-toggle="target: #sidenav">Prensa</Link></li>
                         <li><Link to="/es/contacto" uk-toggle="target: #sidenav">Contacto</Link></li>

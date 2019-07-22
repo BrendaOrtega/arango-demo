@@ -25,6 +25,12 @@ class Contacto extends Component {
     render() {
         return (
             <div>
+                <meta
+                    name="description"
+                    content="Nos pondremos en contacto contigo lo antes posible"
+                />
+
+                <title>Contact | Arango</title>
                 <Navbar/>
                 <div className="contacto none" style={{paddingTop:"70px"}}>
                     <div className="flex">

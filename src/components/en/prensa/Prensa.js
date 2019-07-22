@@ -25,6 +25,12 @@ class Prensa extends Component {
 
         return (
             <section>
+                <meta
+                    name="description"
+                    content="Nos pondremos en contacto contigo lo antes posible"
+                />
+
+                <title>Press | Arango</title>
                 <Navbar/>
             <div className="prensa" style={{paddingTop:"30px"}}>
                 <div className="medios">

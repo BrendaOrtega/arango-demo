@@ -21,6 +21,12 @@ class MenuContainer extends Component {
     render() {
         return (
             <div>
+                <meta
+                    name="description"
+                    content="Descubre nuuestros platillos 100% mexicanos."
+                />
+
+                <title>Menu | Arango</title>
                 <Navbar/>
                 <section className="uk-section-small menu " style={{paddingTop:"70px"}}>
                     <div className="uk-container" >
@@ -32,46 +38,82 @@ class MenuContainer extends Component {
                                 <a className="uk-accordion-title" >For share</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p > Aguacate con chicharrón de res y cerdo</p><p>$135.00</p>
+                                        <p >Avocado with pork and beef chicharron and crickets</p><p>$135.00</p>
                                     </div>
                                     <div className="food">
-                                        <p> Tartar Mar y Tierra Tribilín como en las cantinas pero frío</p><p>$245.00</p>
+                                        <p> Steak tartar and shrimps “Tribilín’</p><p>$245.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Molotes de Yuca</p><p>$155.00</p>
+                                        <p>Sashimi with pinapple aguachile</p><p>$230.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Tacos árabes de pierna de cordero</p><p>$225.00</p>
+                                        <p>Pasilla chile stuffed with tuna tartar</p><p>$245.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Queso de puerco con paté de foie gras</p><p>$235.00</p>
+                                        <p>Pata negra jam from Oaxaca (100g.)</p><p>$590.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Lamb tacos from Puebla
+                                            (3 pzs.)</p><p>$225.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Brisket sandwich from
+                                            Antonia in San Miguel de Allende</p><p>$175.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Black esquites with
+                                            braised oxtail</p><p>$115.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Sweet potato sopes
+                                            with braised beef tongue (3 pzs.)</p><p>$220.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Soft-shell crab taco</p><p>$185.00</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <a className="uk-accordion-title" >Starters</a>
+                                <a className="uk-accordion-title" >Entrée</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p className="">Peneque de frijol con acociles</p><p>$150.00</p>
+                                        <p className="">Roasted squash from Yucatan with green mole</p><p>$235.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Tamal tatemado de elote con hierbas a las brasas</p><p>$115.00</p>
+                                        <p>Sustainable catch of the day over corn kernel “pib” cooked</p><p>$265.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Chile pasilla relleno de tartar de atún</p><p>$245.00</p>
+                                        <p>Braised poussin with red pipian</p><p>$285.00</p>
                                     </div>
                                     <div className="food">
                                         <p>Láminas de pescado con aguachile de piña</p><p>$230.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Tostada de amaranto con jaiba de concha suave</p><p>$210.00</p>
+                                        <p>Braised poussin with red pipian</p><p>$330.00</p>
                                     </div>
 
                                     <div className="food">
-                                        <p>Pinto de camote con barbacoa de lengua de res</p><p>$220.00</p>
+                                        <p>Grilled pork chop with mamey mole (400 g.)</p><p>$410.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Esquites negros de maíz cacahuazintle con rabo de res</p><p>$165.00</p>
+                                        <p>Rib eye steak with clemole (200 g.)</p><p>$460.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Grilled octopus with chorizo sauc</p><p>$310.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Seared salmon with eggplant caponata</p><p>$310.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Duck confit
+                                            with mole “mancha manteles”</p><p>$335.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Braised beef cheek with huaxmole</p><p>$305.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Rack of lamb
+                                            with mole poblano</p><p>$475.00</p>
                                     </div>
                                 </div>
                             </li>
@@ -79,13 +121,14 @@ class MenuContainer extends Component {
                                 <a className="uk-accordion-title" >Salads</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p>Ensalada de hojas verdes con aderezo de elote asado</p><p>$135.00</p>
+                                        <p>Green leaves salad with dry crunchy beef</p><p>$145.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Ensalada de betabeles y palmitos</p><p>$155.00</p>
+                                        <p>Baked beet salad
+                                        </p><p>$155.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Ensalada tibia de langosta confitada y jaiba</p><p>$190.00</p>
+                                        <p>Burrata with tomatoes and hoja santa emulsion</p><p>$165.00</p>
                                     </div>
                                     <div className="food">
                                         <p>Burrata con Jitomates y emulsión de hoja santa</p><p>$175.00</p>
@@ -93,16 +136,22 @@ class MenuContainer extends Component {
                                 </div>
                             </li>
                             <li>
-                                <a className="uk-accordion-title" >Soups</a>
+                                <a className="uk-accordion-title" >Soup & Pasta</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p>Fideo Seco</p><p>$135.00</p>
+                                        <p>Black cereal risotto
+                                            with poached egg</p><p>$165.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Consomé de frijol tatemado y hongos</p><p>$145.00</p>
+                                        <p>Home-made pasta
+                                            stuffed with spinach and chards</p><p>$210.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Arroz negro con huevo ponchado</p><p>$165.00</p>
+                                        <p>Fideo seco</p><p>$135.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Beans and mushrooms broth
+                                            </p><p>$145.00</p>
                                     </div>
                                 </div>
                             </li>
@@ -157,7 +206,7 @@ class MenuContainer extends Component {
                                 <a className="uk-accordion-title " >Desserts</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p>Natilla celestia; de vainilla y rompope</p><p>$125.00</p>
+                                        <p>Natilla celestial de vainilla y rompope</p><p>$125.00</p>
                                     </div>
                                     <div className="food">
                                         <p>Dulce de limón y coco</p><p>$130.00</p>
@@ -180,8 +229,8 @@ class MenuContainer extends Component {
 
                                 </div>
                             </li>
-                            <li>
-                                <a className="uk-accordion-title " >Digestives</a>
+                            {/*<li>
+                                <a className="uk-accordion-title " >Water</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
                                         <p>Amaretto disarono</p><p>$90.00</p>
@@ -217,77 +266,84 @@ class MenuContainer extends Component {
                                         <p>Pacharán Zoco</p><p>$90.00</p>
                                     </div>
                                 </div>
-                            </li>
+                            </li>*/}
                             <li>
-                                <a className="uk-accordion-title" >Drinks</a>
+                                <a className="uk-accordion-title" >Water</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p>Café Americano</p><p>$45.00</p>
+                                        <p>Casa del agua</p><p>$55.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Espresso</p><p>$50.00</p>
+                                        <p>Ciel </p><p>$45.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Espresso Doble</p><p>$65.00</p>
+                                        <p>Perrier </p><p>$55.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Capuccino</p><p>$55.00</p>
+                                        <p>San Pellegrino</p><p>$50.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Carajillo</p><p>$160.00</p>
+                                        <p>Casa del Agua</p><p>$70.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Infusiones de la casa</p><p>$45.00</p>
+                                        <p>Soda</p><p>$45.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Tomás - Casa editora de té</p><p>$55.00</p>
+                                        <p>Ginger Ale</p><p>$50.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Tonic water Schweppes</p><p>$30.00</p>
+                                    </div>
+                                    <div className="food">
+                                        <p>Fever Tree</p><p>$70.00</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <a className="uk-accordion-title " >Beers</a>
+                                <a className="uk-accordion-title " >Beer</a>
                                 <div className="uk-accordion-content" style={{marginLeft:"20px"}}>
                                     <div className="food">
-                                        <p>Allende (355ml)</p><p>$85.00</p>
+                                        <p>Allende Golden Brown Ale</p><p>$85.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Bocanegra (355ml)</p><p>$80.00</p>
+                                        <p>Allende IPA</p><p>$90.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Cucapá Clásica (355ml)</p><p>$80.00</p>
+                                        <p>Tempus Dorada</p><p>$90.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Goose Island IPA (355ml)</p><p>$85.00</p>
+                                        <p>Jabalí Bock</p><p>$85.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Sofie Goose Island (355ml)</p><p>$85.00</p>
+                                        <p>Lagunitas IPA</p><p>$85.00</p>
+                                    </div>
+
+                                    <div className="food">
+                                        <p>Heineken</p><p>$65.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Corona (355ml)</p><p>$55.00</p>
+                                        <p>Bohemia Vienna</p><p>$60.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Pacífico (355ml)</p><p>$55.00</p>
+                                        <p>Bohemia Pilsner</p><p>$60.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Victoria (355ml)</p><p>$55.00</p>
+                                        <p>Bohemia Weizen</p><p>$60.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>León (355ml)</p><p>$55.00</p>
+                                        <p>XX Lager</p><p>$55.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Modelo Especial (355ml)</p><p>$65.00</p>
+                                        <p>XX Ambar</p><p>$55.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Modelo Ambar (355ml)</p><p>$65.00</p>
+                                        <p>Amstel ULTRA</p><p>$55.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Negra Modelo (355ml)</p><p>$65.00</p>
+                                        <p>Tecate Light</p><p>$50.00</p>
                                     </div>
                                     <div className="food">
-                                        <p>Michelob Ultra (355ml)</p><p>$65.00</p>
-                                    </div>
-                                    <div className="food">
-                                        <p>Bud Light (355ml)</p><p>$65.00</p>
+                                        <p>Indio</p><p>$50.00</p>
                                     </div>
                                     <div className="food">
                                         <p>Stella (330ml)</p><p>$70.00</p>

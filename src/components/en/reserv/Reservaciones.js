@@ -32,6 +32,12 @@ class Reservaciones extends Component {
     render() {
         return (
             <div>
+                <meta
+                    name="description"
+                    content="Reserva con nosotros una mesa, con una hermosa vista hacía el monumento a la revolución."
+                />
+
+                <title>Reservation | Arango</title>
                 <Navbar/>
                 <div className="reservaciones none" style={{paddingTop:"70px"}}>
                     <h2 className="bot">Reservations</h2>

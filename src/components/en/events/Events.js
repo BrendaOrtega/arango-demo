@@ -26,6 +26,12 @@ class Eventos extends Component {
     render() {
         return (
             <section >
+                <meta
+                    name="description"
+                    content="Organiza con nosotros tus mejores eventos. Arango Restaurante. Cocina de raíz."
+                />
+
+                <title>Events | Arango</title>
                 <Navbar/>
                 <div className="formulario">
                     <section className="sect" style={{paddingTop:"70px"}}>

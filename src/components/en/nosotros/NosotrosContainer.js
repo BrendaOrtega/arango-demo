@@ -38,6 +38,12 @@ class NosotrosContainer extends Component {
     render() {
         return (
             <div>
+                <meta
+                    name="description"
+                    content="La historia de Doroteo Arango, nuestro heróe revolucionario."
+                />
+
+                <title>About| Arango</title>
 
             <Navbar/>
             <section className="uk-section-small" style={{paddingTop:"120px"}}>

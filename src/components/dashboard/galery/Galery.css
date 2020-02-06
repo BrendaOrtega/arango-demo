@@ -1,0 +1,30 @@
+.add-image{
+    padding: 15px;
+}
+.imageInput {
+    visibility: hidden;
+    width: 0px;
+    position: relative;
+  }
+  .imageInput::before {
+    content: 'Seleccionar archivo';
+    display: inline-block;
+    background: #222222;
+    color: #f3f3f3;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 10px 10px 15px;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    left: 0px;
+    visibility: visible;
+    position: absolute;
+  }
+  .imageInput:hover::before {
+    background-color: #f3f3f3;
+    color: #222222;
+  }
+  .imageInput:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }

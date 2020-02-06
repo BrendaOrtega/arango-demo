@@ -1,0 +1,40 @@
+body{
+    text-align: center;
+    font-size: 16px;
+}
+.display-saucer{
+    border: 3px solid #f3f3f3;
+    border-radius: 5px;
+    width: 80%;
+}
+.form-container{
+    width: 350px;
+    border: 3px solid #f3f3f3;
+    text-align: justify;
+    padding: 20px;
+    border-radius: 5px;
+}
+.btn_send{
+    position: relative;
+    left: 35%;
+}
+.image-file {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+label[for="image"] {
+    font-size: 20px;
+    color: #181818;
+    border-radius: 3px;
+    background-color: #f3f3f3;
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 5px;
+    width: fit-content;
+    text-align: center;
+    }

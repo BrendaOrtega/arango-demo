@@ -1,5 +1,5 @@
 .login-container{
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,12 +13,11 @@
     margin-top: 2em;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 .form-group{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: fit-content;
 }
 label{
@@ -46,6 +45,7 @@ input:focus{
     box-shadow: 0px 0px 12px 0.8px #3474dbb2;
 }
 .btn_send{
-    margin: auto;
+    width: fit-content;
+    margin: inherit;
     font-size: 20px;
 }

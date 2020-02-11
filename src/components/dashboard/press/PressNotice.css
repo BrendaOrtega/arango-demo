@@ -1,8 +1,8 @@
-.MenuSaucer{
+.PressNotice{
     background-color: #fff;
     padding: 20px;
     margin-top: 10px;
 }
-.MenuSaucer>span.uk-icon:hover {
+.PressNotice>span.uk-icon:hover {
     cursor: pointer;
 }

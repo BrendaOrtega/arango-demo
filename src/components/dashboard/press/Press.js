@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Sidebar} from '../sidebar/Sidebar';
+import Sidebar from '../sidebar/Sidebar';
 import './Press.css';
 import firebase from '../../../firebase'
+import Modal from 'react-responsive-modal';
+import PressNotice from './PressNotice';
 
 class Press extends Component {
     constructor() {
@@ -10,11 +12,20 @@ class Press extends Component {
             noticeTitle: '',
             noticePaper: '',
             noticeImage: '',
+            add: false,
             notices: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.removeNotice = this.removeNotice.bind(this);
+    }
+
+    onOpenModalAdd = () => {
+        this.setState({add: true});
+    }
+
+    onCloseModalAdd = () => {
+        this.setState({add: false});
     }
 
     handleChange(e) {
@@ -61,33 +72,56 @@ class Press extends Component {
     removeNotice(noticeId) {
         const noticeRef = firebase.database().ref(`/notices/${noticeId}`);
         noticeRef.remove();
+        console.log(noticeId)
       }
 
     render() {
+
+        const {add} = this.state;
+
         return (
             <div className="container">
                 <Sidebar />
+                <p>Prensa</p>
                 <section className="display-notice">
-
+                    <ul>
+                        {
+                            this.state.notices.map((notice) => {
+                                return (
+                                    <PressNotice
+                                    noticeTitle={notice.noticeTitle}
+                                    noticePaper={notice.noticePaper}
+                                    noticeImage={notice.noticeImage}
+                                    key={notice.noticeId}
+                                    noticeId={notice.noticeId}
+                                    removeNotice={this.removeNotice} />
+                                )
+                            })
+                        }
+                    </ul>
                 </section>
+                <div className="btn-add"><button className="btn_modal" onClick={this.onOpenModalAdd}><span uk-icon="icon: plus; ratio: 2"></span></button></div>
                 <section className="add-notice">
-                    <div className="form-container">
-                        <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <label htmlFor="noticeTitle">Titulo: </label>
-                            <input type="text" name="noticeTitle" placeholder="Título de noticia" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeTitle}/>
+                    <Modal open={add} onClose={this.onCloseModalAdd}>
+                        <div className="form-container">
+                            <form onSubmit={this.handleSubmit}>
+                            <div>
+                                <label htmlFor="noticeTitle">Titulo: </label>
+                                <input type="text" name="noticeTitle" placeholder="Título de noticia" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeTitle}/>
+                            </div>
+                            <div>
+                                <label htmlFor="noticePaper">Periódico: </label>
+                                <input type="text" name="noticePaper" placeholder="Periódico" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticePaper}/> 
+                            </div>
+                            <div>
+                                <label htmlFor="image"> Añadir imagen </label>
+                                <input className="image-file" type="text" id="image" name="noticeImage"></input>                           
+                            </div>
+                            <button className="btn_send">Agregar</button>
+                        </form>
                         </div>
-                        <div>
-                            <label htmlFor="noticePaper">Periódico: </label>
-                            <input type="text" name="noticePaper" placeholder="Periódico" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticePaper}/> 
-                        </div>
-                        <div>
-                            <label htmlFor="image"> Añadir imagen </label>
-                            <input className="image-file" type="file" id="image" name="noticeImage" accept="image/png, image/jpeg"></input>                           
-                        </div>
-                        <button className="btn_send">Agregar</button>
-                    </form>
-                    </div>
+                    </Modal>
+                    
                 </section>
             </div>
         )

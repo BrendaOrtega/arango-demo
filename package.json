@@ -13,6 +13,7 @@
     "react-dom": "^16.5.2",
     "react-moment-countdown": "^0.3.0",
     "react-moment-proptypes": "^1.6.0",
+    "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "scrollreveal": "^4.0.4",

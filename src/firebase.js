@@ -11,6 +11,13 @@ const config = {
     appId: "1:833506846439:web:cdd636fd4e526d10472442"
   };
 
+  export const firebaseui={
+    signInFlow:"popup",
+    signInOptions: [
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ]
+  }
+
 firebase.initializeApp(config);
 
 export const storage = firebase.storage();

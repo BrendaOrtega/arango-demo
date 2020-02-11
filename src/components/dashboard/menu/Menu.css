@@ -6,6 +6,8 @@ body{
     border: 3px solid #f3f3f3;
     border-radius: 5px;
     width: 80%;
+    margin: auto;
+    margin-top: 25px;
 }
 .form-container{
     width: 350px;
@@ -47,3 +49,33 @@ body{
 .select-style select:focus {
     outline: none;
 }
+.btn_modal{
+    width:40px;
+    height:40px;
+    background-color:#181818;
+    margin: 5px;
+    padding:10px;
+    border-radius: 50px;
+    color: #f3f3f3;
+    line-height:32px;
+    border: none;
+    padding: 0px;
+  }
+  .btn_modal:hover{
+    color: #222222;
+    background-color: #f3f3f3;
+  }
+  .btn_modal span{
+      position: relative;
+      width: 25px;
+      height: 25px;
+  }
+  .btn-add{
+      position: relative;
+      margin-left: 75%;
+      margin-top: 5%;
+  }
+  p {
+      font-size: 30px;
+      font-weight: 400;
+  }

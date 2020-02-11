@@ -18,12 +18,12 @@ import Reservacion from "./components/es/reservacion/Reservaciones";
 import Eventos from "./components/es/eventos/Eventos";
 import Medios from "./components/es/medios/Medios";
 import Contactos from "./components/es/contactos/Contactos";
-import Events from "./components/en/events/Events"
+import Events from "./components/en/events/Events";
 
-import Login from "./components/dashboard/login/Login";
 import Galery from "./components/dashboard/galery/Galery";
 import Press from "./components/dashboard/press/Press";
 import Menu from "./components/dashboard/menu/Menu";
+import AdminHome from './components/dashboard/home/Home'
 
 export const Router = () => (
     <Switch>
@@ -42,10 +42,10 @@ export const Router = () => (
         <Route path="/es/eventos" component={Eventos}/>
         <Route path="/es/prensa" component={Medios}/>
         <Route path="/es/contacto" component={Contactos}/>
-        <Route path="/dashboard/login" component={Login}/>
         <Route path="/dashboard/galery" component={Galery}/>
-        <Route path="/dashboard/Menu" component={Menu}/>
-        <Route path="/dashboard/Press" component={Press}/>
+        <Route path="/dashboard/menu" component={Menu}/>
+        <Route path="/dashboard/press" component={Press}/>
+        <Route path="/dashboard/" component={AdminHome}/>
         <Route component={Construccion} />
     </Switch>
 )

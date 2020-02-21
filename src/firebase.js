@@ -2,13 +2,13 @@ import firebase from 'firebase';
 import 'firebase/storage';
 
 const config = {
-    apiKey: "AIzaSyD8_fNXY0icoZksysDId42aMPoBVo6Ub-g",
-    authDomain: "arango-a9376.firebaseapp.com",
-    databaseURL: "https://arango-a9376.firebaseio.com",
-    projectId: "arango-a9376",
-    storageBucket: "arango-a9376.appspot.com",
-    messagingSenderId: "833506846439",
-    appId: "1:833506846439:web:cdd636fd4e526d10472442"
+    apiKey: "AIzaSyAOepoLEXggnOttamjn7R0Q0rUsh7-rUH0",
+    authDomain: "book-75798.firebaseapp.com",
+    databaseURL: "https://book-75798.firebaseio.com",
+    projectId: "book-75798",
+    storageBucket: "book-75798.appspot.com",
+    messagingSenderId: "1059804146557",
+    appId: "1:1059804146557:web:edfc86efc8537515ebba14"
   };
 
   export const firebaseui={

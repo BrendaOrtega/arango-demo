@@ -1,8 +1,22 @@
 .MenuSaucer{
     background-color: #fff;
-    padding: 20px;
+    padding: 5px;
     margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
-.MenuSaucer>span.uk-icon:hover {
+span.uk-icon {
     cursor: pointer;
+}
+tr {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+.uk-table td {
+    width: 80%;
+    padding: 5px;
+    margin: 0;
+    overflow: hidden;
 }

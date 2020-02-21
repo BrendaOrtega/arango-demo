@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MenuSaucer.css'
 
 class MenuSaucer extends Component {
     constructor(props) {
@@ -16,18 +17,14 @@ class MenuSaucer extends Component {
     render() {
         return(
             <div className="MenuSaucer">
-                <table className="uk-table">
-                    <tbody>
-                        <tr>
-                            <td>{this.saucerName}</td>
-                            <td>{this.saucerPrice}</td>
-                            <td>{this.saucerCategory}</td>
-                            <td><span 
-                            onClick={() => this.handleRemove(this.saucerId)} uk-icon="icon: close"></span></td>
-                            <td><span uk-icon="icon: pencil"></span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <tr className="tr-table">
+                    <td>{this.saucerName}</td>
+                    <td>${this.saucerPrice}.00</td>
+                    <td>{this.saucerCategory}</td>
+                    <td><span 
+                    onClick={() => this.handleRemove(this.saucerId)} uk-icon="icon: close"></span></td>
+                    <td><span uk-icon="icon: pencil"></span></td>
+                </tr>
             </div>
         )
     }

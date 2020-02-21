@@ -4,18 +4,19 @@ import './Picture.css'
 class Picture extends Component {
     constructor(props) {
         super(props);
-        this.url=props.url
+        this.url=props.url,
+        this.pictureId=props.pictureId
     }
 
-    handleRemove(imageId) {
-        console.log("Eliminado")
+    handleRemove(pictureId) {
+        this.props.removePicture(pictureId)
     }
 
     render() {
         return(
             <div className="Picture">
                 <img src={this.url} />
-                <button className="btn_delete">Eliminar</button>
+                <button className="btn_delete" onClick={() => this.handleRemove(this.pictureId)}>Eliminar</button>
             </div>
         )
     }

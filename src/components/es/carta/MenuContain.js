@@ -1,8 +1,53 @@
 import React, { Component } from 'react'
 import sr from '../inicio/scrollReveal.js';
 import {Navbar} from "../compartidos/Navbar";
+import firebase from '../../../firebase'
 
 class MenuContain extends Component {
+
+    saucersRef = firebase.database().ref('saucers');
+    
+    
+
+    data  = {
+        0: {
+            category: 'Para compartir',
+            recipes: []
+        },
+        1: {
+            category: 'Entradas',
+            recipes: []
+        },
+        2: {
+            category: 'Ensaladas',
+            recipes: []
+        },
+        3: {
+            category: 'Sopa y pasta',
+            recipes: []
+        },
+        4: {
+            category: 'Principales',
+            recipes: []
+        },
+        5: {
+            category: 'Dulce final',
+            recipes: []
+        },
+        6: {
+            category: 'Digestivos',
+            recipes: []
+        },
+        7: {
+            category: 'Bebidas',
+            recipes: []
+        },
+        8: {
+            category: 'Cerveza',
+            recipes: []
+        },
+    }    
+
     componentDidMount() {
         window.scroll(0, 0)
 

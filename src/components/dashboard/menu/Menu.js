@@ -83,9 +83,10 @@ class Menu extends Component {
         return (
             <div className="container">
                 <Sidebar />
-                <p>Menu</p>
+                <p style={{fontSize: "30px", fontWeight: "400"}}>Menu</p>
                 <div className="display-saucer">
-                    <ul>
+                    <table className="uk-table">
+                        <tbody>
                         {
                             this.state.saucers.map((saucer) => {
                                 return (
@@ -99,7 +100,8 @@ class Menu extends Component {
                                 )
                             })
                         }
-                    </ul>    
+                        </tbody>
+                    </table>    
                 </div>
                 <div className="btn-add"><button className="btn_modal" onClick={this.onOpenModalAdd}><span uk-icon="icon: plus; ratio: 2"></span></button></div>
                 <div className="add-saucer">
@@ -112,12 +114,13 @@ class Menu extends Component {
                             </div>
                             <div>
                                 <label htmlFor="price">Precio: </label>
-                                <input type="number" name="saucerPrice" placeholder="0.00" onChange={(e)=>{this.handleChange(e)}} value={this.state.saucerPrice}/> 
+                                <span>$</span><input type="number" name="saucerPrice" placeholder="0.00" onChange={(e)=>{this.handleChange(e)}} value={this.state.saucerPrice}/><span>.00</span> 
                             </div>
                             <div>
                                 <label htmlFor="category">Categoría: </label>
                                 <div className="select-style">
                                     <select name="saucerCategory" onChange={(e)=>{this.handleChange(e)}} value={this.state.saucerCategory}>
+                                        <option value="seleccionar">seleccionar</option>
                                         <option value="Para compartir">Para compartir</option>
                                         <option value="Entradas">Entradas</option>
                                         <option value="Ensaladas">Ensaladas</option>

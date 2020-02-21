@@ -11,6 +11,7 @@ class Galery extends Component {
             pictures: []
         }
         this.handleChange = this.handleChange.bind(this);
+        this.removePicture = this.removePicture.bind(this);
     }
 
     handleChange (e) {
@@ -40,6 +41,7 @@ class Galery extends Component {
             let newState = [];
             for(let picture in pictures) {
                 newState.push({
+                    pictureId: picture,
                     url: pictures[picture].url
                 });
             }
@@ -47,6 +49,12 @@ class Galery extends Component {
                 pictures: newState
             });
         });
+    }
+
+    removePicture(pictureId){
+        const databaseRef = firebase.database().ref('images')
+        databaseRef.child(pictureId).remove();
+
     }
 
     render() {
@@ -62,14 +70,15 @@ class Galery extends Component {
                             this.state.pictures.map((picture) => {
                                 return(
                                     <Picture
-                                    url={picture.url} />
-                                )
-                                
+                                    url={picture.url}
+                                    pictureId={picture.pictureId}
+                                    key={picture.pictureId}
+                                    removePicture={this.removePicture}
+                                     />
+                                    
+                                )  
                             })
                         }
-
-                        
-                    
                 </div>
             </div>
         )

@@ -1,8 +1,53 @@
 .PressNotice{
-    background-color: #fff;
-    padding: 20px;
-    margin-top: 10px;
+    width: 100%;
 }
-.PressNotice>span.uk-icon:hover {
-    cursor: pointer;
+.pressConta{
+    border: solid 3px #f3f3f3;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
 }
+.imageShow{
+    width: 50%;
+    left: 0px;
+    margin: 10px;
+    overflow: hidden;
+}
+.imageShow img {
+    margin-bottom: 15px;
+}
+.imageShow a {
+    font-size: 17px;
+    text-decoration: underline;
+}
+.noteContent{
+    width: 50%;
+    left: 50%;
+    overflow: hidden;
+    margin: 10px;
+}
+.Buttons{
+    margin-top: 20px;
+}
+.btn_press{
+    width:40px;
+    height:40px;
+    background-color:#f3f3f3;
+    margin: 5px;
+    padding:10px;
+    border-radius: 50px;
+    color: #181818;
+    line-height:32px;
+    border: none;
+    padding: 0px;
+    border: solid 1px #181818
+  }
+  .btn_press:hover{
+    color: #f3f3f3;
+    background-color: #181818;
+  }
+  .btn_press span{
+      position: relative;
+      width: 25px;
+      height: 25px;
+  }

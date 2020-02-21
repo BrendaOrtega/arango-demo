@@ -1,16 +1,5 @@
 import React, { Component } from 'react'
-import uno from '../../../assets/1.JPG';
-import tres from '../../../assets/3.JPG';
-import cuatro from '../../../assets/4.JPG';
-import cinco from '../../../assets/5.JPG';
-import siete from '../../../assets/7.JPG';
-import nueve from '../../../assets/9.JPG';
-import diez from '../../../assets/10.JPG';
-import once from '../../../assets/11.JPG';
-import doce from '../../../assets/12.JPG';
-import trece from '../../../assets/13.JPG';
-import catorce from '../../../assets/14.JPG';
-import ocho from '../../../assets/8.JPG';
+import firebase from '../../../firebase'
 import {Navbar} from "../compartidos/Navbar";
 
 
@@ -21,22 +10,7 @@ const date = new Date(2018, 10, 20, 11);
 class HomeContain extends Component {
     state = {
         loading:false,
-        images: [
-            uno,
-            ocho,
-            cuatro,
-            tres,
-            cinco,
-            trece,
-            siete,
-            nueve,
-            diez,
-            doce,
-            once,
-
-            catorce
-
-        ],
+        images: [],
 
     };
 
@@ -84,6 +58,21 @@ class HomeContain extends Component {
         document.body.appendChild(div2)
         document.body.appendChild(script)
 
+        const databaseRef = firebase.database().ref('images');
+        databaseRef.on('value', (snapshot) => {
+            let images  = snapshot.val();
+            let newState = [];
+            for(let image in images) {
+                newState.push({
+                    imageId: image,
+                    url: images[image].url
+                });
+            }
+            this.setState({
+                images: newState
+            });
+        });
+
     }
 
     render() {
@@ -100,8 +89,8 @@ class HomeContain extends Component {
                                     return (
                                         <div key={index}>
                                             <div className="uk-card uk-card-default">
-                                                <a className="uk-inline" href={image ? image : "https://getuikit.com/docs/images/photo.jpg"} data-type="image" data-caption="<span uk-icon='icon:expand' id='expand'></span>">
-                                                    <img className="bot" src={image ? image : "https://getuikit.com/docs/images/photo.jpg"} alt="" />
+                                                <a className="uk-inline" href={image.url ? image.url : "https://getuikit.com/docs/images/photo.jpg"} data-type="image" data-caption="<span uk-icon='icon:expand' id='expand'></span>">
+                                                    <img className="bot" src={image.url ? image.url : "https://getuikit.com/docs/images/photo.jpg"} alt="" />
                                                 </a>
                                             </div>
                                         </div>

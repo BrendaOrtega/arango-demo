@@ -5,18 +5,19 @@ class Picture extends Component {
     constructor(props) {
         super(props);
         this.url=props.url,
+        this.name=props.name,
         this.pictureId=props.pictureId
     }
 
-    handleRemove(pictureId) {
-        this.props.removePicture(pictureId)
+    handleRemove(pictureId, name) {
+        this.props.removePicture(pictureId, name)
     }
 
     render() {
         return(
             <div className="Picture">
-                <img src={this.url} />
-                <button className="btn_delete" onClick={() => this.handleRemove(this.pictureId)}>Eliminar</button>
+                <img className="imageSh" src={this.url} />
+                <button className="btn_delete" onClick={() => this.handleRemove(this.pictureId, this.name)}>Eliminar</button>
             </div>
         )
     }

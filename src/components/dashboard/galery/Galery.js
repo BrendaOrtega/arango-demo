@@ -8,7 +8,8 @@ class Galery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pictures: []
+            pictures: [],
+            inputRef: this.refs.myInput
         }
         this.handleChange = this.handleChange.bind(this);
         this.removePicture = this.removePicture.bind(this);
@@ -17,21 +18,25 @@ class Galery extends Component {
     handleChange (e) {
         const image = e.target.files[0]
         const databaseRef = firebase.database().ref('images')
-        const storageRef = firebase.storage().ref(`images/${image.name}`)
+        const newName=Date.now().toString()+image.name
+        const storageRef = firebase.storage().ref(`images/${newName}`)
         const task = storageRef.put(image);
+        let snap = {}
 
         task.on('state_changed', (snapshot) =>{
-            
         }, (error)=>{
             console.log(error.message)
         }, () => {
+            
             storageRef.getDownloadURL().then(url => {
                 const image = {
-                    url: url
+                    url: url,
+                    name: newName
                 }
                 databaseRef.push(image)
             })
-        });
+        })
+        this.inputFiles.value='';
     }
 
     componentDidMount() {
@@ -42,7 +47,8 @@ class Galery extends Component {
             for(let picture in pictures) {
                 newState.push({
                     pictureId: picture,
-                    url: pictures[picture].url
+                    url: pictures[picture].url,
+                    name: pictures[picture].name
                 });
             }
             this.setState({
@@ -51,9 +57,11 @@ class Galery extends Component {
         });
     }
 
-    removePicture(pictureId){
+    removePicture(pictureId, name){
         const databaseRef = firebase.database().ref('images')
-        databaseRef.child(pictureId).remove();
+        const storageRef = firebase.storage().ref('images')
+        storageRef.child(name).delete().then((e)=>console.log(e)).catch((e)=>console.log(e))
+        databaseRef.child(pictureId).remove().then((e)=>console.log(e)).catch((e)=>console.log(e))
 
     }
 
@@ -62,7 +70,7 @@ class Galery extends Component {
             <div className="container"> 
                 <Sidebar />
                 <div className="add-image">
-                    <input className="imageInput" type="file" onChange={this.handleChange} accept="image/png, image/jpeg" />    
+                    <input ref={input=>{this.inputFiles=input}} className="imageInput" type="file" onChange={this.handleChange} accept="image/png, image/jpeg" />    
                 </div>
                 <div className="show-image">
 
@@ -72,6 +80,7 @@ class Galery extends Component {
                                     <Picture
                                     url={picture.url}
                                     pictureId={picture.pictureId}
+                                    name={picture.name}
                                     key={picture.pictureId}
                                     removePicture={this.removePicture}
                                      />

@@ -6,6 +6,7 @@ class PressNotice extends Component {
         super(props);
         this.noticeUrl = props.noticeUrl;
         this.imageUrl = props.imageUrl;
+        this.name = props.name;
         this.noticeTitle = props.noticeTitle;
         this.noticePaper = props.noticePaper;
         this.noticeMonth = props.noticeMonth;
@@ -13,8 +14,8 @@ class PressNotice extends Component {
         this.noticeId = props.noticeId;
     }
 
-    handleRemove(noticeId) {
-        this.props.removeNotice(noticeId);
+    handleRemove(noticeId, name) {
+        this.props.removeNotice(noticeId, name);
     }
 
     render() {
@@ -30,8 +31,8 @@ class PressNotice extends Component {
                         <p>{this.noticePaper}</p>
                         <span>{this.noticeMonth} {this.noticeYear}</span>
                     <div className="Buttons">
-                        <button className="btn_press"><span uk-icon="icon: close; ratio: 2"></span></button>
-                        <button className="btn_press"><span uk-icon="icon: pencil; ratio: 2"></span></button>
+                        <button className="btn_press" onClick={() => this.handleRemove(this.noticeId, this.name)}><span uk-icon="icon: close; ratio: 2"></span></button>
+                        
                     </div>
                     </div>
                 </div>

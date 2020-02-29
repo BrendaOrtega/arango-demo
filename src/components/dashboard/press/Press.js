@@ -16,7 +16,10 @@ class Press extends Component {
             noticeYear: '',
             add: false,
             notices: [],
-            showImageUrl: ''
+            images:[],
+            showImageUrl: '',
+            name: '',
+            inputRef: this.refs.myInput
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,8 +43,8 @@ class Press extends Component {
 
     handleUpload(e) {
         const imagesPress = e.target.files[0]
-        const databaseRef = firebase.database().ref('imagesPress')
-        const storageRef = firebase.storage().ref(`imagesPress/${imagesPress.name}`)
+        const newName = Date.now().toString() + imagesPress.name
+        const storageRef = firebase.storage().ref(`imagesPress/${newName}`)
         const task = storageRef.put(imagesPress);
 
         task.on('state_changed', (snapshot) =>{
@@ -50,15 +53,13 @@ class Press extends Component {
             console.log(error.message)
         }, () => {
             storageRef.getDownloadURL().then(url => {
-                const imagesPress = {
-                    url: url
-                }
-                databaseRef.push(imagesPress)
                 this.setState({
-                    showImageUrl: url
+                    showImageUrl: url,
+                    name: newName                    
                 })
             })
         });
+        this.inputFiles.value='';
     }
 
     handleSubmit(e){
@@ -70,7 +71,8 @@ class Press extends Component {
             noticePaper: this.state.noticePaper,
             noticeMonth: this.state.noticeMonth,
             noticeYear: this.state.noticeYear,
-            showImageUrl: this.state.showImageUrl
+            showImageUrl: this.state.showImageUrl,
+            name: this.state.name
         }
         noticesRef.push(notice);
         this.setState({
@@ -79,7 +81,8 @@ class Press extends Component {
             noticePaper: '',
             noticeMonth: '',
             noticeYear: '',
-            showImageUrl: ''
+            showImageUrl: '',
+            name: ''
         });
     }
 
@@ -96,19 +99,22 @@ class Press extends Component {
                     noticePaper: notices[notice].noticePaper,
                     noticeMonth: notices[notice].noticeMonth,
                     noticeYear: notices[notice].noticeYear,
-                    showImageUrl: notices[notice].showImageUrl
+                    showImageUrl: notices[notice].showImageUrl,
+                    name:notices[notice].name
                 });
             }
             this.setState({
                 notices: newState
             });
         });
+
     }
 
-    removeNotice(noticeId) {
-        const noticeRef = firebase.database().ref(`/notices/${noticeId}`);
-        noticeRef.remove();
-        console.log(noticeId)
+    removeNotice(noticeId, name) {
+        const noticeRef = firebase.database().ref('notices');
+        const storageRef = firebase.storage().ref('imagesPress')
+        storageRef.child(name).delete().then((e)=>console.log(e)).catch((e)=>console.log(e))
+        noticeRef.child(noticeId).remove().then((e)=>console.log(e)).catch((e)=>console.log(e))
       }
 
     render() {
@@ -127,6 +133,7 @@ class Press extends Component {
                                     <PressNotice
                                     noticeUrl={notice.noticeUrl}
                                     imageUrl={notice.showImageUrl}
+                                    name={notice.name}
                                     noticeTitle={notice.noticeTitle}
                                     noticePaper={notice.noticePaper}
                                     noticeMonth={notice.noticeMonth}
@@ -181,9 +188,11 @@ class Press extends Component {
                                 <input type="number" name="noticeYear" placeholder="2020" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeYear} required/> 
                             </div>
                             <div>
-                                <input className="imagePress" type="file" name="imageUrl" onChange={(e)=>{this.handleUpload(e)}} accept="image/png, image/jpeg"/>
+                                <input ref={input=>{this.inputFiles=input}} className="imagePress" type="file" name="imageUrl" onChange={(e)=>{this.handleUpload(e)}} accept="image/png, image/jpeg"/>
                                 <input className="imageValue" onChange={(e)=>{this.handleChange}} value ={this.state.showImageValue}/>
                                 {console.log(this.state.showImageUrl)}
+                                <input className="nameValue" onChange={(e)=>{this.handleChange}} value ={this.state.name}/>
+                                {console.log(this.state.name)}
                             </div>
                             <button className="btn_send">Agregar</button>
                         </form>

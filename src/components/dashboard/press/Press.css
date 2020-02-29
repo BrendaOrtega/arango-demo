@@ -106,6 +106,9 @@ input{
   .imageValue{
       visibility: hidden;
   }
+  .nameValue{
+    visibility: hidden;
+}
 .uk-table{
     width: 100%;
     box-sizing: border-box;

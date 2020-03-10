@@ -13,6 +13,7 @@ class Sidebar extends Component {
 
     logout() {
         firebase.auth().signOut();
+        console.log("Logout")
     }
 
     render() {
@@ -23,7 +24,7 @@ class Sidebar extends Component {
                 <li><Link to="/dashboard/galery">Galería</Link></li>
                 <li><Link to="/dashboard/menu">Menú</Link></li>
                 <li><Link to="/dashboard/press">Prensa</Link></li>
-                <li onClick={this.logout} className="logout">Cerrar sesión</li>
+                <li onClick={this.logout} className="logout"><Link to="/dashboard">Cerrar sesión</Link></li>
             </div>
         );
     }

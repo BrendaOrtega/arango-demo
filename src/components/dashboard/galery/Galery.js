@@ -3,7 +3,6 @@ import Sidebar from '../sidebar/Sidebar';
 import './Galery.css'
 import firebase from '../../../firebase'
 import Picture from './Picture';
-
 class Galery extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +39,14 @@ class Galery extends Component {
     }
 
     componentDidMount() {
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if(!user){
+                const {history} = this.props;
+                history.push('/dashboard/login')
+            }
+        })
+
         const databaseRef = firebase.database().ref('images')
         databaseRef.on('value', (snapshot) => {
             let pictures = snapshot.val();
@@ -66,31 +73,31 @@ class Galery extends Component {
     }
 
     render() {
-        return (
-            <div className="container"> 
-                <Sidebar />
-                <div className="add-image">
-                    <input ref={input=>{this.inputFiles=input}} className="imageInput" type="file" onChange={this.handleChange} accept="image/png, image/jpeg" />    
+            return (
+                <div className="container"> 
+                    <Sidebar />
+                    <div className="add-image">
+                        <input ref={input=>{this.inputFiles=input}} className="imageInput" type="file" onChange={this.handleChange} accept="image/png, image/jpeg" />    
+                    </div>
+                    <div className="show-image">
+    
+                            {
+                                this.state.pictures.map((picture) => {
+                                    return(
+                                        <Picture
+                                        url={picture.url}
+                                        pictureId={picture.pictureId}
+                                        name={picture.name}
+                                        key={picture.pictureId}
+                                        removePicture={this.removePicture}
+                                         />
+                                        
+                                    )  
+                                })
+                            }
+                    </div>
                 </div>
-                <div className="show-image">
-
-                        {
-                            this.state.pictures.map((picture) => {
-                                return(
-                                    <Picture
-                                    url={picture.url}
-                                    pictureId={picture.pictureId}
-                                    name={picture.name}
-                                    key={picture.pictureId}
-                                    removePicture={this.removePicture}
-                                     />
-                                    
-                                )  
-                            })
-                        }
-                </div>
-            </div>
-        )
+            )
     }
 }
 

@@ -23,7 +23,8 @@ import Events from "./components/en/events/Events";
 import Galery from "./components/dashboard/galery/Galery";
 import Press from "./components/dashboard/press/Press";
 import Menu from "./components/dashboard/menu/Menu";
-import AdminHome from './components/dashboard/home/Home'
+import AdminHome from './components/dashboard/home/Home';
+import LoginContainer from './components/dashboard/login/LoginContainer';
 
 export const Router = () => (
     <Switch>
@@ -42,6 +43,7 @@ export const Router = () => (
         <Route path="/es/eventos" component={Eventos}/>
         <Route path="/es/prensa" component={Medios}/>
         <Route path="/es/contacto" component={Contactos}/>
+        <Route path="/dashboard/login" component={LoginContainer}/>
         <Route path="/dashboard/galery" component={Galery}/>
         <Route path="/dashboard/menu" component={Menu}/>
         <Route path="/dashboard/press" component={Press}/>

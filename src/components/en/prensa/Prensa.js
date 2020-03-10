@@ -20,18 +20,6 @@ class Prensa extends Component {
         };
 
     componentDidMount () {
-        window.scroll(0, 0)
-
-        const config3 = {
-            origin: 'bottom',
-            duration: 800,
-            delay: 100,
-            distance: '50%',
-            scale: 1,
-            easing: 'ease',
-        }
-
-        sr.reveal('.bot', config3);
 
         const noticesRef = firebase.database().ref('notices');
         noticesRef.on('value', (snapshot) => {
@@ -52,6 +40,19 @@ class Prensa extends Component {
                 notices: newState
             });
         });
+
+        window.scroll(0, 0)
+
+        const config3 = {
+            origin: 'bottom',
+            duration: 800,
+            delay: 100,
+            distance: '50%',
+            scale: 1,
+            easing: 'ease',
+        }
+
+        sr.reveal('.bot', config3);
     }
     render() {
 

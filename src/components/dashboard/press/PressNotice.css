@@ -6,48 +6,46 @@
     border-radius: 5px;
     margin-bottom: 10px;
     display: flex;
+    height: 150px;
 }
 .imageShow{
     width: 50%;
     left: 0px;
-    margin: 10px;
+    margin: 5px;
     overflow: hidden;
 }
 .imageShow img {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    width: 120px;
 }
 .imageShow a {
-    font-size: 17px;
+    font-size: 14px;
     text-decoration: underline;
 }
 .noteContent{
     width: 50%;
     left: 50%;
     overflow: hidden;
-    margin: 10px;
+    margin: 5px;
 }
 .Buttons{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .btn_press{
-    width:40px;
-    height:40px;
-    background-color:#f3f3f3;
+    width:30px;
+    height:30px;
+    background-color:#181818;
     margin: 5px;
-    padding:10px;
-    border-radius: 50px;
-    color: #181818;
+    padding:8px;
+    border-radius: 50%;
+    color: #f3f3f3;
     line-height:32px;
     border: none;
     padding: 0px;
     border: solid 1px #181818
   }
-  .btn_press:hover{
-    color: #f3f3f3;
-    background-color: #181818;
-  }
   .btn_press span{
       position: relative;
-      width: 25px;
-      height: 25px;
+      width: 20px;
+      height: 20px;
   }

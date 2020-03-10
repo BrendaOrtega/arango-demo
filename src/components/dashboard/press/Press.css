@@ -113,3 +113,8 @@ input{
     width: 100%;
     box-sizing: border-box;
 }
+
+.btn_modal{
+    position: fixed;
+    top: 50px;
+}

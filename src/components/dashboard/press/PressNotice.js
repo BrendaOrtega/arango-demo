@@ -24,11 +24,11 @@ class PressNotice extends Component {
                 <div className="pressConta">
                     <div className="imageShow">
                         <img src={this.imageUrl} alt="noticia1"/><br/>
-                        <a href={this.noticeUrl}><h6>{this.noticeUrl}</h6></a>
+                        <a href={this.noticeUrl}><p>{this.noticeUrl}</p></a>
                     </div>
                     <div className="noteContent">                        
-                        <h4>{this.noticeTitle}</h4>
-                        <p>{this.noticePaper}</p>
+                        <h6>{this.noticeTitle}</h6>
+                        <p style={{margin: "3px"}}>{this.noticePaper}</p>
                         <span>{this.noticeMonth} {this.noticeYear}</span>
                     <div className="Buttons">
                         <button className="btn_press" onClick={() => this.handleRemove(this.noticeId, this.name)}><span uk-icon="icon: close; ratio: 2"></span></button>

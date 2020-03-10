@@ -37,4 +37,5 @@
   }
   .logout{
     top:0;
+    cursor: pointer;
   }

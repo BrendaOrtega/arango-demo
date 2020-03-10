@@ -4,6 +4,7 @@ import './Press.css';
 import firebase from '../../../firebase'
 import Modal from 'react-responsive-modal';
 import PressNotice from './PressNotice';
+import { Redirect } from 'react-router-dom';
 
 class Press extends Component {
     constructor() {
@@ -19,7 +20,8 @@ class Press extends Component {
             images:[],
             showImageUrl: '',
             name: '',
-            inputRef: this.refs.myInput
+            inputRef: this.refs.myInput,
+            user: {}
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -87,6 +89,14 @@ class Press extends Component {
     }
 
     componentDidMount() {
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if(!user){
+                const {history} = this.props;
+                history.push('/dashboard/login')
+            }
+        })
+
         const noticesRef = firebase.database().ref('notices');
         noticesRef.on('value', (snapshot) => {
             let notices = snapshot.val();
@@ -120,88 +130,87 @@ class Press extends Component {
     render() {
 
         const {add} = this.state;
-
-        return (
-            <div className="container">
-                <Sidebar />
-                <p style={{fontSize: "30px", fontWeight: "400"}}>Prensa</p>
-                <section className="display-notice">
-                    <ul>
-                        {
-                            this.state.notices.map((notice) => {
-                                return (
-                                    <PressNotice
-                                    noticeUrl={notice.noticeUrl}
-                                    imageUrl={notice.showImageUrl}
-                                    name={notice.name}
-                                    noticeTitle={notice.noticeTitle}
-                                    noticePaper={notice.noticePaper}
-                                    noticeMonth={notice.noticeMonth}
-                                    noticeYear={notice.noticeYear}
-                                    key={notice.noticeId}
-                                    noticeId={notice.noticeId}
-                                    removeNotice={this.removeNotice} />
-                                )
-                            })
-                        }
-                    </ul>
-                </section>
-                <div className="btn-add"><button className="btn_modal" onClick={this.onOpenModalAdd}><span uk-icon="icon: plus; ratio: 2"></span></button></div>
-                <section className="add-notice">
-                    <Modal open={add} onClose={this.onCloseModalAdd}>
-                        <div className="form-container">
-                            <form onSubmit={this.handleSubmit}>
-                            <div>
-                                <label htmlFor="noticeUrl">Link de noticia: </label>
-                                <input type="url" name="noticeUrl" placeholder="Link de la noticia" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeUrl} required/>
-                            </div>    
-                            <div>
-                                <label htmlFor="noticeTitle">Título de la nota: </label>
-                                <input type="text" name="noticeTitle" placeholder="Título" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeTitle} required/> 
-                            </div>
-                            <div>
-                                <label htmlFor="noticePaper">Periódico: </label>
-                                <input type="text" name="noticePaper" placeholder="Periódico" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticePaper}required/> 
-                            </div>
-                            <div>
-                                <label htmlFor="noticeMonth">Mes: </label>
-                                <div className="select-style">
-                                    <select name="noticeMonth" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeMonth} required>
-                                        <option value="seleccionar">seleccionar</option>
-                                        <option value="Enero">Enero</option>
-                                        <option value="Febrero">Febrero</option>
-                                        <option value="Marzo">Marzo</option>
-                                        <option value="Abril">Abril</option>
-                                        <option value="Mayo">Mayo</option>
-                                        <option value="Junio">Junio</option>
-                                        <option value="Julio">Julio</option>
-                                        <option value="Agosto">Agosto</option>
-                                        <option value="Septiembre">Septiembre</option>
-                                        <option value="Octubre">Octubre</option>
-                                        <option value="Noviembre">Noviembre</option>
-                                        <option value="Diciembre">Diciembre</option>
-                                    </select>
+            return (
+                <div className="container">
+                    <Sidebar />
+                    <p style={{fontSize: "30px", fontWeight: "400"}}>Prensa</p>
+                    <div className="btn-add"><button className="btn_modal" onClick={this.onOpenModalAdd}><span uk-icon="icon: plus; ratio: 2"></span></button></div>
+                    <section className="display-notice">
+                        <ul>
+                            {
+                                this.state.notices.map((notice) => {
+                                    return (
+                                        <PressNotice
+                                        noticeUrl={notice.noticeUrl}
+                                        imageUrl={notice.showImageUrl}
+                                        name={notice.name}
+                                        noticeTitle={notice.noticeTitle}
+                                        noticePaper={notice.noticePaper}
+                                        noticeMonth={notice.noticeMonth}
+                                        noticeYear={notice.noticeYear}
+                                        key={notice.noticeId}
+                                        noticeId={notice.noticeId}
+                                        removeNotice={this.removeNotice} />
+                                    )
+                                })
+                            }
+                        </ul>
+                    </section>
+                    <section className="add-notice">
+                        <Modal open={add} onClose={this.onCloseModalAdd}>
+                            <div className="form-container">
+                                <form onSubmit={this.handleSubmit}>
+                                <div>
+                                    <label htmlFor="noticeUrl">Link de noticia: </label>
+                                    <input type="url" name="noticeUrl" placeholder="Link de la noticia" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeUrl} required/>
+                                </div>    
+                                <div>
+                                    <label htmlFor="noticeTitle">Título de la nota: </label>
+                                    <input type="text" name="noticeTitle" placeholder="Título" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeTitle} required/> 
                                 </div>
+                                <div>
+                                    <label htmlFor="noticePaper">Periódico: </label>
+                                    <input type="text" name="noticePaper" placeholder="Periódico" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticePaper}required/> 
+                                </div>
+                                <div>
+                                    <label htmlFor="noticeMonth">Mes: </label>
+                                    <div className="select-style">
+                                        <select name="noticeMonth" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeMonth} required>
+                                            <option value="seleccionar">seleccionar</option>
+                                            <option value="Enero">Enero</option>
+                                            <option value="Febrero">Febrero</option>
+                                            <option value="Marzo">Marzo</option>
+                                            <option value="Abril">Abril</option>
+                                            <option value="Mayo">Mayo</option>
+                                            <option value="Junio">Junio</option>
+                                            <option value="Julio">Julio</option>
+                                            <option value="Agosto">Agosto</option>
+                                            <option value="Septiembre">Septiembre</option>
+                                            <option value="Octubre">Octubre</option>
+                                            <option value="Noviembre">Noviembre</option>
+                                            <option value="Diciembre">Diciembre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label htmlFor="noticeYear">Año: </label>
+                                    <input type="number" name="noticeYear" placeholder="2020" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeYear} required/> 
+                                </div>
+                                <div>
+                                    <input ref={input=>{this.inputFiles=input}} className="imagePress" type="file" name="imageUrl" onChange={(e)=>{this.handleUpload(e)}} accept="image/png, image/jpeg"/>
+                                    <input className="imageValue" onChange={(e)=>{this.handleChange}} value ={this.state.showImageValue}/>
+                                    {console.log(this.state.showImageUrl)}
+                                    <input className="nameValue" onChange={(e)=>{this.handleChange}} value ={this.state.name}/>
+                                    {console.log(this.state.name)}
+                                </div>
+                                <button className="btn_send">Agregar</button>
+                            </form>
                             </div>
-                            <div>
-                                <label htmlFor="noticeYear">Año: </label>
-                                <input type="number" name="noticeYear" placeholder="2020" onChange={(e)=>{this.handleChange(e)}} value={this.state.noticeYear} required/> 
-                            </div>
-                            <div>
-                                <input ref={input=>{this.inputFiles=input}} className="imagePress" type="file" name="imageUrl" onChange={(e)=>{this.handleUpload(e)}} accept="image/png, image/jpeg"/>
-                                <input className="imageValue" onChange={(e)=>{this.handleChange}} value ={this.state.showImageValue}/>
-                                {console.log(this.state.showImageUrl)}
-                                <input className="nameValue" onChange={(e)=>{this.handleChange}} value ={this.state.name}/>
-                                {console.log(this.state.name)}
-                            </div>
-                            <button className="btn_send">Agregar</button>
-                        </form>
-                        </div>
-                    </Modal>
-                    
-                </section>
-            </div>
-        )
+                        </Modal>
+                        
+                    </section>
+                </div>
+            )
     }
 }
 

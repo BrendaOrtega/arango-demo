@@ -45,6 +45,7 @@ form{
 input{
     position: relative;
     width: 90%;
+    font-family: "Arango";
 }
 .select-style {
     border: 1px solid #f3f3f3;

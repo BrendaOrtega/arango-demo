@@ -96,6 +96,7 @@ class Menu extends Component {
             saucerCategory: '',
             saucerCategoryEn: ''
         });
+        this.onCloseModalAdd()   
     }
 
     removeSaucer(saucerId) {
@@ -185,7 +186,7 @@ class Menu extends Component {
                                 </div>
                                 <div>
                                     <label htmlFor="price">Precio: </label>
-                                    <span>$</span><input type="number" name="saucerPrice" placeholder="0.00" onChange={(e)=>{this.handleChange(e)}} value={this.state.saucerPrice}/><span>.00</span> 
+                                    <span></span><input type="number" name="saucerPrice" placeholder="$ 0.00" onChange={(e)=>{this.handleChange(e)}} value={this.state.saucerPrice}/><span>.00</span> 
                                 </div>
                                 <div>
                                     <label htmlFor="category">Categoría: </label>
@@ -243,7 +244,7 @@ class Menu extends Component {
                                 </div>
                                 <div>
                                     <label htmlFor="price">Precio: </label>
-                                    <span>$</span><input type="number" name="saucerPrice" placeholder="0.00" onChange={(e)=>{this.handleChangeEdit(e)}} value={this.state.editValues.saucerPrice}/><span>.00</span> 
+                                    <span></span><input type="number" name="saucerPrice" placeholder="$ 0.00" onChange={(e)=>{this.handleChangeEdit(e)}} value={this.state.editValues.saucerPrice}/><span>.00</span> 
                                 </div>
                                 <div>
                                     <label htmlFor="category">Categoría: </label>

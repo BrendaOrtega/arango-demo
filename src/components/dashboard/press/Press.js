@@ -86,6 +86,7 @@ class Press extends Component {
             showImageUrl: '',
             name: ''
         });
+        this.onCloseModalAdd()
     }
 
     componentDidMount() {
